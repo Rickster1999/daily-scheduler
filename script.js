@@ -1,7 +1,23 @@
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
+
+//Setting military time with the current time.
 $(function () {
+    var hour = dayjs().hour();
+
+    $('.time-block').each(function() {
+        var id = $(this).attr('id').split('-')[1];
+        var rowHour = parseInt (id);
+
+        if (hour < rowHour) {
+            $(this).addClass('future');
+        } else if (hour > rowHour) {
+            $(this).addClass('past');
+        } else {
+            $(this).addClass('present');
+        }
+    })
     // TODO: Add a listener for click events on the save button. This code should
     // use the id in the containing time-block as a key to save the user input in
     // local storage. HINT: What does `this` reference in the click listener

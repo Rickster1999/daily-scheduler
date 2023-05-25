@@ -2,7 +2,7 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 
-//Setting military time with the current time.
+//Setting the  colors to corralate with the past , present , and future.
 $(function () {
     var hour = dayjs().hour();
 

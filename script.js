@@ -10,5 +10,13 @@ $(function () {
       : (hour < rowHour) ? $(this).addClass('future') 
       : $(this).addClass('present');
     });
+
+    // click event for all buttons to go within localStorage
+  $(".saveBtn").on("click", function() {
+    var inputText = $(this).parent().children(".description").val();
+    var inputParent = $(this).parent().attr("id");
+    localStorage.setItem(inputParent, inputText);
+  });
+  
 });
   

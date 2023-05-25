@@ -17,7 +17,7 @@ $(function () {
       localStorage.setItem(inputParent, inputText);
     });
   
-    // click event to clear all localStorage and refresh browser
+    // click event to clear all localStorage
     $(".clearBtn").on("click", function() {
       var clearForm = confirm("Are you sure?");
       if (clearForm === true) {
@@ -26,9 +26,8 @@ $(function () {
       }
     });
   
-    // for loop to getItem from localStorage and populate textarea in html
+    // for loop to getItem from localStorage and populate text in html
   for (let i = 9; i < 18; i++) {
     var savedInput = (localStorage.getItem("hour-" + [i]));
     $("#hour-" + [i]).children(".description").text(savedInput);
-  }});
-  
+  }}); 

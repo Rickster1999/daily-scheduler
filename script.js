@@ -10,13 +10,25 @@ $(function () {
       : (hour < rowHour) ? $(this).addClass('future') 
       : $(this).addClass('present');
     });
-
-    // click event for all buttons to go within localStorage
-  $(".saveBtn").on("click", function() {
-    var inputText = $(this).parent().children(".description").val();
-    var inputParent = $(this).parent().attr("id");
-    localStorage.setItem(inputParent, inputText);
-  });
+    // click event for all buttons to save input to localStorage
+    $(".saveBtn").on("click", function() {
+      var inputText = $(this).parent().children(".description").val();
+      var inputParent = $(this).parent().attr("id");
+      localStorage.setItem(inputParent, inputText);
+    });
   
-});
+    // click event to clear all localStorage and refresh browser
+    $(".clearBtn").on("click", function() {
+      var clearForm = confirm("Are you sure?");
+      if (clearForm === true) {
+        localStorage.clear();
+        location.reload();
+      }
+    });
+  
+    // for loop to getItem from localStorage and populate textarea in html
+  for (let i = 9; i < 18; i++) {
+    var savedInput = (localStorage.getItem("hour-" + [i]));
+    $("#hour-" + [i]).children(".description").text(savedInput);
+  }});
   
